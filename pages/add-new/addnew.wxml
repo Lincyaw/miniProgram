@@ -1,0 +1,10 @@
+<!--index.wxml-->
+
+<view class="page-body">
+	<view class="page-section">
+		<view>
+			<button bindtap="getLocation">自己精确定位</button>
+			<button bindtap="search">模糊搜索</button>
+		</view>
+	</view>
+</view>

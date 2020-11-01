@@ -1,5 +1,4 @@
 /**app.wxss**/
-
 page, view, scroll-view, swiper, movable-area, cover-view, text, icon, rich-text,
 progress, button, checkbox-group, checkbox, form, input, label, picker,
 picker-view, radio-group, slider, switch, textarea, navigator, audio, image,
@@ -128,3 +127,4 @@ page {
 	box-sizing: border-box;
 	height: 56px;
 }
+@import 'miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';

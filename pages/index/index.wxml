@@ -1,15 +1,25 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <view>{{ test }}</view>
-    <button bindtap="getLocation">自己精确定位</button>
-    <button bindtap="search">模糊搜索</button>
-  </view>
+
+<view class="page-body">
+	<view class="page-section">
+
+
+		<view class="listview">
+			<view class="weui-cells">
+			<block wx:for="{{lists}}" wx:key="*this">
+				<mp-slideview data-index="{{index}}" id="item{{index}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+					<mp-cell value="提醒{{index}}" footer="{{item.query}}"></mp-cell>
+				</mp-slideview>
+			</block>
+				
+			</view>
+		</view>
+
+
+		<view class="btnblock">
+			<view class="btn">
+				<button bindtap="new">新建提醒</button>
+			</view>
+		</view>
+	</view>
 </view>

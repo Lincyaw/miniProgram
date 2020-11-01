@@ -1,0 +1,24 @@
+{
+  "name": "miniprogram",
+  "version": "1.0.0",
+  "description": "IOT project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lincyaw/miniProgram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lincyaw/miniProgram/issues"
+  },
+  "homepage": "https://github.com/Lincyaw/miniProgram#readme",
+  "dependencies": {
+    "miniprogram-sm-crypto": "^0.2.1",
+    "weui-miniprogram": "^1.0.5"
+  },
+  "devDependencies": {}
+}

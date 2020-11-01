@@ -153,10 +153,6 @@ Page({
 			this._showToast('请输入关键词');
 			return;
 		}
-		// if (this.data.modeIndex === 0 && !this.data.cityName.trim()) {
-		// 	this._showToast('请输入城市名称');
-		// 	return;
-		// }
 		if (this.data.modeIndex === 0 && !this.data.radius) {
 			this._showToast('请输入搜索半径');
 			return;
@@ -164,21 +160,10 @@ Page({
 
 		let boundary = '';
 
-		// if (this.data.modeIndex === 0) {
-		// 	boundary = `region(${this.data.cityName.trim()})`;
-		// }
 
 		if (this.data.modeIndex === 0) {
 			boundary = `nearby(${this.data.centerPoint.latitude},${this.data.centerPoint.longitude},${this.data.radius})`;
 		}
-
-		// if (this.data.modeIndex === 2) {
-		// 	boundary = `rectangle(${this.data.southwest.latitude},${this.data.southwest.longitude},${this.data.northeast.latitude},${this.data.northeast.longitude})`;
-		// }
-		// wx.navigateTo({
-		// 	url: `../search-result/search-result?keyword=${this.data.keyword}&boundary=${boundary}`
-		// });
-
 		const data = {
 			keyword: this.data.keyword,
 			boundary: boundary
@@ -219,11 +204,62 @@ Page({
 				pois: result.data
 			});
 			console.log(this.data.pois);
-			console.log(res.data.data);
-			
+			console.log(this.data.keyword);
+
+			wx.setStorage(
+				{
+					"list": [{
+						"value": "test",
+						"query": "test"
+					}]
+				}
+			);
+
+			wx.getStorage({
+				key: 'list',
+				success(res) {
+					console.log(res.data)
+					// res.data.push({
+					// 	"value": this.data.pois,
+					// 	"query": this.data.keyword
+					// })
+				}
+			})
+
+			// try {
+			// 	var value = wx.getStorageSync('list');
+			// 	console.log(value)
+			// 	if (value) {
+			// 		console.log(value)
+			// 		value.data.push({
+			// 			"value": this.data.pois,
+			// 			"query": this.data.keyword
+			// 		})
+			// 		wx.setStorageSync(
+			// 			{
+			// 				"list": value.data
+			// 			}
+			// 		);
+			// 	}
+			//   } catch (e) {
+			// 	console.log("没找到");
+			// 	wx.setStorageSync(
+			// 		{
+			// 			"list": [
+			// 				{
+			// 					"value": this.data.pois,
+			// 					"query": this.data.keyword
+			// 				}
+			// 			]
+			// 		}
+			// 	);
+			//   }
 		}).catch(err => {
 			console.error(err);
 		});
+		wx.navigateTo({
+		  url: '../index/index',
+		})
 	},
 
 	_showToast(title) {

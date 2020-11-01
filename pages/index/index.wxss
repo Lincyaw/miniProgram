@@ -1,21 +1,19 @@
 /**index.wxss**/
-.userinfo {
+
+.btnblock{
   display: flex;
-  flex-direction: column;
+  text-align:center;
+  margin: auto;
   align-items: center;
+  position: fixed;
+  top: 80%;
+  left: 30%;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.listview{
+  height: 400rpx;
+  border: 1px solid red;
 }
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+.weui-cells weui-cells_after-title{
+    text-align: center;
 }
