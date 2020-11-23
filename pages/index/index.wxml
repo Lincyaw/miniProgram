@@ -8,7 +8,7 @@
 			<view class="weui-cells">
 			<block wx:for="{{lists}}" wx:key="*this">
 				<mp-slideview data-index="{{index}}" id="item{{index}}" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
-					<mp-cell value="提醒{{index}}" footer="{{item.query}}"></mp-cell>
+					<mp-cell value="{{item.keyword}}" footer="{{item.pois.length}}"></mp-cell>
 				</mp-slideview>
 			</block>
 				

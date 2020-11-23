@@ -12,7 +12,7 @@
 
 .listview{
   height: 400rpx;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .weui-cells weui-cells_after-title{
     text-align: center;

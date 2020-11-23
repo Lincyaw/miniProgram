@@ -205,61 +205,33 @@ Page({
 			});
 			console.log(this.data.pois);
 			console.log(this.data.keyword);
+			var datas = wx.getStorageSync('datas');
+			if(datas.length==0){
+				datas = [
+					{
+						keyword: this.data.keyword,
+						pois: this.data.pois
+					}
+				];
+				wx.setStorageSync('datas', datas);
+			}else{
+				console.log("local datas: ",datas);
+				datas.push({
+					keyword: this.data.keyword,
+					pois: this.data.pois
+				});
+				wx.setStorageSync('datas', datas);
+			}
+			
 
-			wx.setStorage(
-				{
-					"list": [{
-						"value": "test",
-						"query": "test"
-					}]
-				}
-			);
-
-			wx.getStorage({
-				key: 'list',
-				success(res) {
-					console.log(res.data)
-					// res.data.push({
-					// 	"value": this.data.pois,
-					// 	"query": this.data.keyword
-					// })
-				}
-			})
-
-			// try {
-			// 	var value = wx.getStorageSync('list');
-			// 	console.log(value)
-			// 	if (value) {
-			// 		console.log(value)
-			// 		value.data.push({
-			// 			"value": this.data.pois,
-			// 			"query": this.data.keyword
-			// 		})
-			// 		wx.setStorageSync(
-			// 			{
-			// 				"list": value.data
-			// 			}
-			// 		);
-			// 	}
-			//   } catch (e) {
-			// 	console.log("没找到");
-			// 	wx.setStorageSync(
-			// 		{
-			// 			"list": [
-			// 				{
-			// 					"value": this.data.pois,
-			// 					"query": this.data.keyword
-			// 				}
-			// 			]
-			// 		}
-			// 	);
-			//   }
 		}).catch(err => {
 			console.error(err);
 		});
-		wx.navigateTo({
-		  url: '../index/index',
-		})
+		setTimeout(function(){
+			wx.navigateTo({
+			url: '../index/index',
+		  })},1000);
+		
 	},
 
 	_showToast(title) {
